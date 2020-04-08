@@ -27,16 +27,7 @@ namespace Stack_Game
         private void Form1_Load(object sender, EventArgs e)
         {
             Timer_Game.Start();
-            Block1.Hide();
-            Block2.Hide();
-            Block3.Hide();
-            Block4.Hide();
-            Block5.Hide();
-            Block6.Hide();
-            Block7.Hide();
-            Block8.Hide();
-            Block9.Hide();
-            Block10.Hide();
+            HideBlock();
 
             YouWinLabel.Hide();
             GameOverLabel.Hide();
@@ -168,13 +159,13 @@ namespace Stack_Game
             if (level == 10)
             {
                 YouWinLabel.Show();
+                block.Hide();
                 HideBlock();
             }
         }
 
         void HideBlock()
         {
-            block.Hide();
             Block1.Hide();
             Block2.Hide();
             Block3.Hide();
