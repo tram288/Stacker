@@ -16,6 +16,8 @@ namespace Stack_Game
     public partial class Form1 : Form
     {
         int level = 0;
+        int speedLevel = 3;
+        int maxSpeedLevel = 5;
 
         public Form1()
         {
@@ -35,6 +37,9 @@ namespace Stack_Game
             Block8.Hide();
             Block9.Hide();
             Block10.Hide();
+
+            YouWinLabel.Hide();
+            GameOverLabel.Hide();
         }
 
         //Timer
@@ -94,6 +99,16 @@ namespace Stack_Game
                 win(level);
                 //Timer_Game.Stop();
                 //Timer_Game2.Stop();
+                if (level == speedLevel)
+                {
+                    Timer_Game.Interval = 50;
+                    Timer_Game2.Interval = 50;
+                }
+                if (level == maxSpeedLevel)
+                {
+                    Timer_Game.Interval = 30;
+                    Timer_Game2.Interval = 30;
+                }
             }
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -125,7 +140,7 @@ namespace Stack_Game
                     {
                         block.Hide();
                         Timer_Game3.Start();
-                        fail();
+                        fail();           
                     }
                     break;
                 case 3:
@@ -135,7 +150,7 @@ namespace Stack_Game
                     {
                         block.Hide();
                         Timer_Game3.Start();
-                        fail();
+                        fail();                     
                     }
                     break;
             }
@@ -145,16 +160,31 @@ namespace Stack_Game
         //Option Manager
         void fail()
         {
-            MessageBox.Show("You Lost!");
-            Application.Restart();
-
+            GameOverLabel.Show();
+            //Application.Restart();
         }
         void win(int level)
         {
             if (level == 10)
             {
-                MessageBox.Show("You Win!");
+                YouWinLabel.Show();
+                HideBlock();
             }
+        }
+
+        void HideBlock()
+        {
+            block.Hide();
+            Block1.Hide();
+            Block2.Hide();
+            Block3.Hide();
+            Block4.Hide();
+            Block5.Hide();
+            Block6.Hide();
+            Block7.Hide();
+            Block8.Hide();
+            Block9.Hide();
+            Block10.Hide();
         }
     }
 }

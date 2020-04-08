@@ -43,13 +43,15 @@
             this.Block10 = new System.Windows.Forms.Panel();
             this.Block9 = new System.Windows.Forms.Panel();
             this.Block6 = new System.Windows.Forms.Panel();
+            this.GameOverLabel = new System.Windows.Forms.Label();
+            this.YouWinLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // block
             // 
             this.block.BackColor = System.Drawing.Color.Yellow;
             this.block.ForeColor = System.Drawing.Color.Black;
-            this.block.Location = new System.Drawing.Point(158, 425);
+            this.block.Location = new System.Drawing.Point(156, 425);
             this.block.Name = "block";
             this.block.Size = new System.Drawing.Size(50, 25);
             this.block.TabIndex = 0;
@@ -155,12 +157,39 @@
             this.Block6.Size = new System.Drawing.Size(50, 25);
             this.Block6.TabIndex = 3;
             // 
+            // GameOverLabel
+            // 
+            this.GameOverLabel.AutoSize = true;
+            this.GameOverLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GameOverLabel.ForeColor = System.Drawing.Color.White;
+            this.GameOverLabel.Location = new System.Drawing.Point(116, 79);
+            this.GameOverLabel.Name = "GameOverLabel";
+            this.GameOverLabel.Size = new System.Drawing.Size(145, 29);
+            this.GameOverLabel.TabIndex = 6;
+            this.GameOverLabel.Text = "Game Over";
+            this.GameOverLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // YouWinLabel
+            // 
+            this.YouWinLabel.AutoSize = true;
+            this.YouWinLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.YouWinLabel.ForeColor = System.Drawing.Color.White;
+            this.YouWinLabel.Location = new System.Drawing.Point(135, 79);
+            this.YouWinLabel.Name = "YouWinLabel";
+            this.YouWinLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.YouWinLabel.Size = new System.Drawing.Size(110, 29);
+            this.YouWinLabel.TabIndex = 7;
+            this.YouWinLabel.Text = "You Win";
+            this.YouWinLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(382, 453);
+            this.Controls.Add(this.YouWinLabel);
+            this.Controls.Add(this.GameOverLabel);
             this.Controls.Add(this.Block10);
             this.Controls.Add(this.Block9);
             this.Controls.Add(this.Block8);
@@ -179,6 +208,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -198,6 +228,8 @@
         private System.Windows.Forms.Panel Block10;
         private System.Windows.Forms.Panel Block9;
         private System.Windows.Forms.Panel Block6;
+        private System.Windows.Forms.Label GameOverLabel;
+        private System.Windows.Forms.Label YouWinLabel;
     }
 }
 
