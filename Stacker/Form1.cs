@@ -27,6 +27,14 @@ namespace Stack_Game
             Timer_Game.Start();
             Block1.Hide();
             Block2.Hide();
+            Block3.Hide();
+            Block4.Hide();
+            Block5.Hide();
+            Block6.Hide();
+            Block7.Hide();
+            Block8.Hide();
+            Block9.Hide();
+            Block10.Hide();
         }
 
         //Timer
@@ -53,17 +61,25 @@ namespace Stack_Game
 
         private void Timer_Game3_Tick(object sender, EventArgs e)
         {
-            if (Block2.Top < Block1.Top)
+            switch (level)
             {
-                Block2.Top += 10;
+                case 2:
+                    if (Block2.Top < Block1.Top)
+                    {
+                        Block2.Top += 10;
+                    }
+                    else
+                        Timer_Game3.Stop();
+                    break;
+                case 3:
+                    if (Block3.Top < Block1.Top)
+                    {
+                        Block3.Top += 10;
+                    }
+                    else
+                        Timer_Game3.Stop();
+                    break;
             }
-            else
-                Timer_Game3.Stop();
-        }
-
-        void moveBlock(int direction)
-        {
-            block.Left += (30 * direction);
         }
 
         //Key options for user
@@ -88,27 +104,45 @@ namespace Stack_Game
             }
         }
 
-        void showBlock(int level)
+        //Block Action
+        void moveBlock(int direction)
         {
-            if (level == 1)
-            {
-                Block1.Show();
-                Block1.Location = block.Location;
-            }
-            if (level == 2)
-            {
-                Block2.Show();
-                Block2.Location = block.Location;
-                if (Block2.Left != Block1.Left)
-                {
-                    block.Hide();
-                    Timer_Game3.Start();
-                    fail();
-                }
-
-            }
+            block.Left += (30 * direction);
         }
 
+        void showBlock(int level)
+        {
+            switch (level)
+            {
+                case 1:
+                    Block1.Show();
+                    Block1.Location = block.Location;
+                    break;
+                case 2:
+                    Block2.Show();
+                    Block2.Location = block.Location;
+                    if (Block2.Left != Block1.Left)
+                    {
+                        block.Hide();
+                        Timer_Game3.Start();
+                        fail();
+                    }
+                    break;
+                case 3:
+                    Block3.Show();
+                    Block3.Location = block.Location;
+                    if (Block3.Left != Block2.Left)
+                    {
+                        block.Hide();
+                        Timer_Game3.Start();
+                        fail();
+                    }
+                    break;
+            }
+
+        }
+
+        //Option Manager
         void fail()
         {
             MessageBox.Show("You Lost!");
@@ -122,6 +156,5 @@ namespace Stack_Game
                 MessageBox.Show("You Win!");
             }
         }
-
     }
 }
