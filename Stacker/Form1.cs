@@ -18,6 +18,7 @@ namespace Stack_Game
         int level = 0;
         int speedLevel = 3;
         int maxSpeedLevel = 5;
+        bool spaceHandle = true;
 
         public Form1()
         {
@@ -81,24 +82,26 @@ namespace Stack_Game
         //Key options for user
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
-
-            if (e.KeyChar == (char)Keys.Space)
+            if (spaceHandle == true)
             {
-                level++;
-                showBlock(level);
-                block.Top -= 20;
-                win(level);
-                //Timer_Game.Stop();
-                //Timer_Game2.Stop();
-                if (level == speedLevel)
+                if (e.KeyChar == (char)Keys.Space)
                 {
-                    Timer_Game.Interval = 50;
-                    Timer_Game2.Interval = 50;
-                }
-                if (level == maxSpeedLevel)
-                {
-                    Timer_Game.Interval = 30;
-                    Timer_Game2.Interval = 30;
+                    level++;
+                    showBlock(level);
+                    block.Top -= 20;
+                    win(level);
+                    //Timer_Game.Stop();
+                    //Timer_Game2.Stop();
+                    if (level == speedLevel)
+                    {
+                        Timer_Game.Interval = 50;
+                        Timer_Game2.Interval = 50;
+                    }
+                    if (level == maxSpeedLevel)
+                    {
+                        Timer_Game.Interval = 30;
+                        Timer_Game2.Interval = 30;
+                    }
                 }
             }
         }
@@ -152,6 +155,7 @@ namespace Stack_Game
         void fail()
         {
             GameOverLabel.Show();
+            spaceHandle = false;
             //Application.Restart();
         }
         void win(int level)
